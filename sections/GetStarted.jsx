@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import styles from '../styles';
-import { staggerContainer, fadeIn, planetVariants } from '../utils/motion';
-import { StartSteps, TypingText, TitleText } from '../components';
-import { startingFeatures } from '../constants';
+import { motion } from "framer-motion";
+import styles from "../styles";
+import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import { StartSteps, TypingText, TitleText } from "../components";
+import { startingFeatures } from "../constants";
+import Image from "next/image";
 
 const GetStarted = () => (
   <section className={`${styles.paddings} relative z-10`}>
@@ -12,21 +13,24 @@ const GetStarted = () => (
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: 'false', amount: 0.25 }}
+      viewport={{ once: "false", amount: 0.25 }}
       className={`${styles.innerWidth} mx-auto flex lg:flex-row flex-col gap-8`}
     >
       <motion.div
-        variants={planetVariants('left')}
+        variants={planetVariants("left")}
         className={`flex-1 ${styles.flexCenter}`}
       >
-        <img
+        <Image
           src="/get-started.png"
-          alt=""
+          alt="get-started"
+          loading="lazy"
           className="w-[90%] h-[90%] object-contain"
+          width={400}
+          height={400}
         />
       </motion.div>
       <motion.div
-        variants={fadeIn('left', 'tween', 0.2, 1)}
+        variants={fadeIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] flex justify-center flex-col"
       >
         <TypingText title="| How Metawerses Works" />

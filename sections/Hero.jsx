@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import styles from '../styles';
-import { slideIn, staggerContainer, textVariant } from '../utils/motion';
+import { motion } from "framer-motion";
+import styles from "../styles";
+import { slideIn, staggerContainer, textVariant } from "../utils/motion";
+import Image from "next/image";
 
 const Hero = () => (
   <section className={`${styles.yPaddings} sm:pl-6`}>
@@ -28,22 +29,31 @@ const Hero = () => (
       </div>
 
       <motion.div
-        variants={slideIn('right', 'tween', 0.2, 1)}
+        variants={slideIn("right", "tween", 0.2, 1)}
         className="relative w-full md:mt-[20px] -mt[12px]"
       >
         <div className="absolute w-full h-[300px] hero-gradient rounded-tl-[140px] z-[0] -top-[100px]" />
-        <img
-          src="/cover.png"
-          alt=""
-          className="w-full sm:h-[500px] h-[350px] object-cover rounded-tl-[140px] z-10 relative"
-        />
+        <div className="w-full sm:h-[500px] h-[350px] rounded-tl-[140px] z-10 relative overflow-hidden">
+          <Image
+            src="/cover.png"
+            alt="cover"
+            className="object-cover"
+            fill
+            loading="lazy"
+          />
+        </div>
+
         <a href="#explore">
           <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
-            <img
-              src="/stamp.png"
-              alt=""
-              className="sm:w-[155px] w-[100px] sm:h-[155px] h-[50px] object-contain"
-            />
+            <div className="relative sm:w-[155px] w-[100px] sm:h-[155px] h-[50px]">
+              <Image
+                src="/stamp.png"
+                alt="stamp"
+                className="object-contain"
+                fill
+                loading="lazy"
+              />
+            </div>
           </div>
         </a>
       </motion.div>
